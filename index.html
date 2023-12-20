@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bat Ball Stump game</title>
+  </head>
+  <body>
+    <h1>Bat Ball Stump game</h1>
+
+    <button onclick="first()"><img src="bat.jpg"></button>
+
+    <button onclick="second()"><img src="ball.jpg"></button>
+
+    <button onclick="third()"><img src="stump.jpg"></button>
+
+    <h3 id="MSG"></h3>
+   
+
+    <script>
+
+      
+      function first() {
+
+
+        let score={
+        Win:0,
+        Lost:0,
+        Tie:0,
+      }
+      console.log(score);
+
+        let userMSG = "you have choosen bat";
+
+        let randomNumber = Math.random() * 3;
+        let computerChoice;
+        if (randomNumber > 0 && randomNumber <= 1) {
+          computerChoice = "ball";
+        } else if (randomNumber > 1 && randomNumber <= 2) {
+          computerChoice = "bat";
+        } else {
+          computerChoice = "stump";
+        }
+
+        let result;
+
+        if (computerChoice == "ball") {
+          score.Win++;
+          result = "user won";
+        } else if (computerChoice == "bat") {
+          score.Tie++;
+          result = "tie";
+        } else {
+          score.Lost++;
+          result = "computer has won";
+        }
+
+
+        document.querySelector("#MSG").innerHTML = `${userMSG} .computer choosen ${computerChoice}.${result}. \n 
+        Win:${score.Win}    Lost:${score.Lost}    Tie:${score.Tie}`;
+      }
+
+      function second() {
+
+        let score={
+        Win:0,
+        Lost:0,
+        Tie:0,
+      }
+
+
+        let userSecondMSG = "you have choosen ball";
+
+        let secondRandomNumber = Math.random() * 3;
+        let secondComputerChoice;
+        if (secondRandomNumber > 0 && secondRandomNumber <= 1) {
+          secondComputerChoice = "ball";
+        } else if (secondRandomNumber > 1 && secondRandomNumber <= 2) {
+          secondComputerChoice = "bat";
+        } else {
+          secondComputerChoice = "stump";
+        }
+
+        let secondResult;
+
+        if (secondComputerChoice == "ball") {
+          score.Tie++;
+          secondResult = "Tie";
+        } else if (secondComputerChoice == "bat") {
+          score.Lost++;
+          secondResult = "Computer won";
+        } else {
+          score.Win++;
+          secondResult = "User has won";
+        }
+
+
+        document.querySelector("#MSG").innerHTML = 
+        `${userSecondMSG} .
+         computer choosen ${secondComputerChoice}.
+         ${secondResult}.
+        Win:${score.Win}    Lost:${score.Lost}    Tie:${score.Tie}`;
+      }
+
+      function third() {
+
+        let score={
+        Win:0,
+        Lost:0,
+        Tie:0,
+      }
+
+
+        let userThirdMSG = "you have choosen stump";
+
+        let thirdRandomNumber = Math.random() * 3;
+        let thirdComputerChoice;
+        if (thirdRandomNumber > 0 && thirdRandomNumber <= 1) {
+          thirdComputerChoice = "ball";
+        } else if (thirdRandomNumber > 1 && thirdRandomNumber <= 2) {
+          thirdComputerChoice = "bat";
+        } else {
+          thirdComputerChoice = "stump";
+        }
+
+        let thirdResult;
+
+        if (thirdComputerChoice == "ball") {
+          score.Lost++;
+          thirdResult = "Computer won";
+        } else if (thirdComputerChoice == "bat") {
+          score.Win++;
+          thirdResult = "User has won";
+        } else {
+          score.Tie++;
+          thirdResult = "Tie";
+        }
+
+        document.querySelector("#MSG").innerHTML = 
+        `${userThirdMSG} .
+         computer choosen ${thirdComputerChoice}.
+         ${thirdResult}. 
+         Win:${score.Win}    Lost:${score.Lost}    Tie:${score.Tie}`;
+      }
+    </script>
+  </body>
+</html>
